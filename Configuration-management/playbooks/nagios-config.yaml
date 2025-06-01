@@ -1,0 +1,5 @@
+- name: Nagios configuration
+  hosts: all
+  gather_facts: true
+  roles:
+    - nagios-config

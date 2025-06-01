@@ -1,0 +1,5 @@
+- name: Ntp configuration
+  hosts: all
+  gather_facts: true
+  roles:
+    - ntp-config

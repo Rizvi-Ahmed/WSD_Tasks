@@ -1,0 +1,19 @@
+- name: install ntpd package
+  apt:
+    name: ntp
+    state: present
+    update_cache: yes
+
+- name: copy custom ntpd config
+  template:
+    src: ntpd.conf
+    dest: /etc/ntpd.conf
+    backup: yes
+
+- name: restart ntpd
+  service:
+    name: ntp
+    state: restarted
+    enabled: yes
+
+  

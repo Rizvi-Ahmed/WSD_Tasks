@@ -1,0 +1,12 @@
+- name: copy nagios configuration based on hosts
+  template:
+    src: nagios.cfg
+    dest: /usr/local/nagios/etc/objects/{{ item }}.cfg
+  loop: "{{ groups['remote-servers-ntp'] }}"
+
+- name: restart nagios
+  service:
+    name: nagios
+    state: restarted
+    enabled: yes
+  

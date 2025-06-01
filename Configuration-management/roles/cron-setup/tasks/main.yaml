@@ -1,0 +1,6 @@
+- name: Apply cron to logrotate
+  cron:
+    name: "Logrotate every 10 mins between 2h - 4h"
+    minute: "*/10"
+    hour: "2-3"
+    job: "/usr/sbin/logrotate /etc/logrotate.conf"
